@@ -13,7 +13,7 @@ import {
     categoryNameToId,
     sleep
 } from './helpers';
-import { ethers } from 'ethers';
+
 
 
 const mint = async (network, escrowAddress) => {

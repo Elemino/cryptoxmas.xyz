@@ -6,6 +6,7 @@ import CryptoxmasEscrow from '../build/CryptoxmasEscrow';
 import NFT from '../build/NFT';
 import { deployContract, storeData, waitForTransactionReceipt } from './helpers';
 
+
 const deploy = async (network) => {
     
     console.log("Deploying contract for ", network);
