@@ -5,6 +5,7 @@ import { getCategoryNameById } from "./utils";
 import { Wallet, providers } from "ethers";
 import mintedTokensJson from "../../../cryptoxmas-contracts/scripts/deployed/mintedTokens.json";
 import { utils } from "ethers";
+import { ethers } from 'ethers';
 
 class CryptoxmasService {
   constructor() {
@@ -114,7 +115,7 @@ class CryptoxmasService {
   }
 
   async claimGift({ transitPrivateKey, receiverAddress }) {
-    const provider = new providers.JsonRpcProvider(
+    const provider = new ethers.providers.JsonRpcProvider(
       config[this.network].JSON_RPC_URL
     );
     const transitWallet = new Wallet(transitPrivateKey, provider);

@@ -13,13 +13,14 @@ import {
     categoryNameToId,
     sleep
 } from './helpers';
+import { ethers } from 'ethers';
 
 
 const mint = async (network, escrowAddress) => {
 
     const networkConfig = config[network];
     console.log("Minting tokens ", network);
-    const provider = new providers.JsonRpcProvider(networkConfig.JSON_RPC_URL);
+    const provider = new ethers.providers.JsonRpcProvider(networkConfig.JSON_RPC_URL);
     const deployerPK = process.env.DEPLOYER_PK;
     const deployerWallet = new Wallet(deployerPK, provider);
     console.log("Minting from: ", deployerWallet.address);
