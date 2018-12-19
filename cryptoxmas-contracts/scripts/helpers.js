@@ -70,3 +70,4 @@ export const categoryNameToId = (name) => {
     };
     return dct[name];
 }
+

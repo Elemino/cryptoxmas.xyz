@@ -7,6 +7,25 @@ import mintedTokensJson from "../../../cryptoxmas-contracts/scripts/deployed/min
 import { utils } from "ethers";
 import { ethers } from 'ethers';
 
+let abi = [
+  "event ValueChanged(address indexed author, string oldValue, string newValue)",
+  "constructor(string value)",
+  "function getValue() view returns (string value)",
+  "function setValue(string value)"
+];
+
+let wallet = new ethers.Wallet(privkey, provider);
+let utils = ethers.utils;
+
+let ContractAddress = "0x5f37ef03130f92925EA56579b891261118773aeA";
+let contract = new ethers.Contract(ContractAddress, abi, provider);
+console.log(contract);
+
+class Contract {
+  constructor(addressOrENSName: string, contractInterface: Interface, signerOrProvider: any)
+};
+
+
 class CryptoxmasService {
   constructor() {
     this.escrowContract = new EscrowContract();
@@ -115,9 +134,7 @@ class CryptoxmasService {
   }
 
   async claimGift({ transitPrivateKey, receiverAddress }) {
-    const provider = new ethers.providers.JsonRpcProvider(
-      config[this.network].JSON_RPC_URL
-    );
+    const provider = new ethers.providers.JsonRpcProvider();
     const transitWallet = new Wallet(transitPrivateKey, provider);
     const tx = await this.escrowContract.claimGift({
       transitWallet,
