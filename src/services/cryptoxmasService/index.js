@@ -4,7 +4,7 @@ import { detectNetwork } from "../../utils";
 import { getCategoryNameById } from "./utils";
 import { Wallet, providers } from "ethers";
 import mintedTokensJson from "../../../cryptoxmas-contracts/scripts/deployed/mintedTokens.json";
-import { utils } from "ethers";
+import { utils, Signer } from "ethers";
 import { ethers } from 'ethers';
 
 class CryptoxmasService {
