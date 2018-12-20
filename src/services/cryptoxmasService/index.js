@@ -7,31 +7,28 @@ import mintedTokensJson from "../../../cryptoxmas-contracts/scripts/deployed/min
 import { utils } from "ethers";
 import { ethers } from 'ethers';
 
-let abi = [
-  "event ValueChanged(address indexed author, string oldValue, string newValue)",
-  "constructor(string value)",
-  "function getValue() view returns (string value)",
-  "function setValue(string value)"
-];
+let abi = [];
 
 let wallet = new ethers.Wallet(privkey, provider);
+
 let utils = ethers.utils;
 
 let ContractAddress = "0x5f37ef03130f92925EA56579b891261118773aeA";
+
 let contract = new ethers.Contract(ContractAddress, abi, provider);
 console.log(contract);
 
-class Contract {
-  constructor(addressOrENSName: string, contractInterface: Interface, signerOrProvider: any)
+contract.on("ValueChanged", (author, oldValue, newValue, event) => {});
+
+class Cryptoxmas {
+  constructor(addressOrENSName: string, contractInterface: Interface, signerOrProvider: any){
+    this.escrowContract = new EscrowContract();
+
+  }
 };
 
 
-class CryptoxmasService {
-  constructor() {
-    this.escrowContract = new EscrowContract();
-  }
-
-  setup(web3) {
+ setup(web3) {    this.escrowContract = new EscrowContract();
     this.web3 = web3;
     const { networkName } = detectNetwork(web3);
     const network = networkName.toLowerCase();
