@@ -11,7 +11,7 @@ const deploy = async (network) => {
     
     console.log("Deploying contract for ", network);
     const networkConfig = config[network];
-    const provider = new ethers.providers.JsonRpcProvider(networkConfig.NFT_ADDRESS);
+    const provider = new providers.JsonRpcProvider(networkConfig.JSON_RPC_URL);
     const deployerPK = process.env.DEPLOYER_PK;
     const deployerWallet = new Wallet(deployerPK, provider);
     const deployerAddress = deployerWallet.address;    
