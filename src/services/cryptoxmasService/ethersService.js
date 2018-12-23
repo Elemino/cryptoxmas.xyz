@@ -3,9 +3,7 @@ import { ethers } from "ethers";
 async function setup() {
 
 // Connect to the network
-// The address from the above deployment example
-// We connect to the Contract using a Provider, so we will only
-// have read-only access to the Contract
+// Connect to the Contract using a Provider, so we only have read-only access to the contract
 
 var provider = ethers.providers.getDefaultProvider('mainnet');
 
@@ -32,9 +30,12 @@ contractAbiFragment = [
     }
  ];
 
-
 let contract = new ethers.Contract(contractAddress, abi, provider);
 
+// How many tokens?
+
+
+var numberOfDecimals = 18;
 var numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
 
 };
