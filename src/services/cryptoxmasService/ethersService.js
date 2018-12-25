@@ -1,14 +1,20 @@
 import { ethers } from "ethers";
 
+
+
+const ethersService = () => {
+    
+
+
 async function setup() {
 
 // Connect to the network
 // Connect to the Contract using a Provider, so we only have read-only access to the contract
 
-var provider = ethers.providers.getDefaultProvider('mainnet');
+let provider = ethers.providers.getDefaultProvider('mainnet');
 
 
-let contractAddress = "0xcBD901dB55c9139828f7b5D5Cbfd5AfeAB01d066";
+let tokenAddress = "0xcBD901dB55c9139828f7b5D5Cbfd5AfeAB01d066";
 
 contractAbiFragment = [
     {
@@ -30,13 +36,26 @@ contractAbiFragment = [
     }
  ];
 
-let contract = new ethers.Contract(contractAddress, abi, provider);
+let contract = new ethers.Contract(tokenAddress, cardId, abi, provider);
+
+let utils = ethers.utils;
 
 // How many tokens?
 
 
-var numberOfDecimals = 18;
-var numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
+let numberOfDecimals = 18;
+let numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
 
 };
+
+
+  // api
+  return {
+    getprovider: () => getprovider,
+    setup
+  };
+};
+
+export default ethersService();
+
 

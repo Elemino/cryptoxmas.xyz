@@ -20,7 +20,6 @@ import HomeScreen from "./components/HomeScreen/HomeScreen.jsx";
 import Footer from "./components/common/poweredByVolca";
 import styles from "./styles";
 
-
 class App extends Component {
   _renderWrongNetwork() {
     return (
