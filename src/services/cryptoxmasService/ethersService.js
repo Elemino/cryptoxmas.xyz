@@ -37,12 +37,12 @@ contractAbiFragment = [
  ];
 
 let contract = new ethers.Contract(tokenAddress, cardId, abi, provider);
+let contractReadOnly = contract.connect(provider)
 
-let utils = ethers.utils;
 
 // How many tokens?
 
-
+let utils = ethers.utils;
 let numberOfDecimals = 18;
 let numberOfTokens = ethers.utils.parseUnits(amount, numberOfDecimals);
 
