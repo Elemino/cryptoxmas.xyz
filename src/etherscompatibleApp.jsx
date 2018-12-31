@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Row } from "react-bootstrap";
-import web3Service from "./services/web3Service";
+import ethersService from "./services/ethersService";
 import SendScreen from "./components/SendScreen/SendScreen";
 import ReceiveForm from "./components/Receive/ReceiveForm";
 import TransferComponent from "./components/Transfer";
@@ -50,9 +50,7 @@ class App extends Component {
   }
 
   render() {
-  
-
-    
+   
     return (
       <div style={styles.background}>
         <Header />
@@ -94,7 +92,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   let balance;
-  const web3 = web3Service.getWeb3();
+  const ethers = ethersService.getprovider();
   if (state.web3Data.balance) {
     balance = web3.fromWei(state.web3Data.balance, "ether").toNumber();
   }

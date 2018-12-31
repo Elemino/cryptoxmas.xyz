@@ -1,5 +1,6 @@
-import { ethers } from "ethers";
-import { providers } from "ethers";
+import { ethers, providers } from "ethers";
+
+
 
 
 const ethersService = () => {
@@ -12,11 +13,17 @@ const options = {
    provider: providers.getDefaultProvider(network), 
  }
 let contract = new ethers.Contract(tokenAddress, cardId, abi, provider);
-const balance = await contract.balanceOf(options.address);
+const balance = await contract.getBalance(address);
 return balance.toString();
 
 
 };
+
+return {
+  
+   balance,
+   address
+ };
 
 };
 
