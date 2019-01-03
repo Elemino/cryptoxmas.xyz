@@ -11,8 +11,9 @@ const getBalance = async (options) => {
 const options = {
    address: '0xcBD901dB55c9139828f7b5D5Cbfd5AfeAB01d066"', 
    provider: providers.getDefaultProvider(network), 
+   const abi;  
  }
-let contract = new ethers.Contract(tokenAddress, cardId, abi, provider);
+let contract = new ethers.Contract(address, cardId, abi, provider);
 const balance = await contract.getBalance(address);
 return balance.toString();
 
@@ -26,6 +27,8 @@ return {
  };
 
 };
+
+
 
   // api
   return {
