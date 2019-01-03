@@ -1,8 +1,5 @@
 import { ethers, providers } from "ethers";
 
-
-
-
 const ethersService = () => {
 // Connect to the network
 // Connect to the Contract using a Provider, so we only have read-only access to the contract
@@ -27,8 +24,6 @@ return {
  };
 
 };
-
-
 
   // api
   return {
