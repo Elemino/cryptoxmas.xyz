@@ -1,5 +1,5 @@
 import ipfsService from "./../services/ipfsService";
-import web3Service from "../services/web3Service";
+import ethersService from "../services/ethersService";
 import {
   getTransfersForActiveAddress,
   getDepositingTransfers,
@@ -26,7 +26,7 @@ const updateTransfer = payload => {
 
 const subscribePendingTransferMined = (transfer, nextStatus, txHash) => {
   return async dispatch => {
-    const web3 = web3Service.getWeb3();
+    const ethers = ethersService.getprovider();
 
     const txReceipt = await web3.eth.getTransactionReceiptMined(
       txHash || transfer.txHash
