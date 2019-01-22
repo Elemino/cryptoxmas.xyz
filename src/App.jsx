@@ -92,7 +92,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   let balance;
-  const web3 = web3Service.getWeb3();
+  const ethers = ethersService.getprovider();
   if (state.web3Data.balance) {
     balance = web3.fromWei(state.web3Data.balance, "ether").toNumber();
   }
@@ -108,3 +108,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(App);
+
