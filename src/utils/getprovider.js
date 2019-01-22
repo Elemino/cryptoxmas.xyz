@@ -7,7 +7,10 @@ const getProvider = () => {
 
               signer = provider.getSigner();
               provider = ethers.providers.getDefaultProvider();
-}})};
+    }
+   }
+  )
+ };
 
-  
 export default getProvider;
+
