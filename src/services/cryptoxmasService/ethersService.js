@@ -9,12 +9,11 @@ const getBalance = async (options) => {
 const options = {
    address: '0xcBD901dB55c9139828f7b5D5Cbfd5AfeAB01d066"', 
    provider: providers.getDefaultProvider(network), 
-   const abi;
+   
    const wallet = new ethers.Wallet(privateKey, provider);  
  }
 
-let walletWithoutProvider = await ethers.Wallet.fromEncryptedJson(JSON.stringify(encryptedWallet), password);
-let walletWithProvider = walletWithoutProvider.connect(provider);
+
 
 const contract = new ethers.Contract(address, cardId, abi, wallet);
 const balance = await contract.getBalance(address);
@@ -28,10 +27,8 @@ return {
    balance,
    address
  };
-
 };
-
-  // api
+ // api
   return {
     getprovider: () => getprovider,
     setup
